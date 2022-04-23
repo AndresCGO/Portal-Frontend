@@ -24,7 +24,7 @@ Author URL: http://w3layouts.com
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #ff4c4c;
+  --primary: #DC0505;
   --secondary: #e71d36;
   --success: #28a745;
   --info: #17a2b8;
@@ -14050,8 +14050,8 @@ a.text-dark:focus {
 
 :root {
   --theme-color: #e40000;
-  --primary-color: #00bbf9;
-  --secondary-color: #f77f00;
+  --primary-color: #DC0505;
+  --secondary-color: #DC0505;
   --font-color: #707070;
   --bg-color: #fff;
   --heading-color: #060606;
@@ -14075,8 +14075,8 @@ a.text-dark:focus {
 
 [data-theme="dark"] {
   --theme-color: #e40000;
-  --primary-color: #00bbf9;
-  --secondary-color: #f77f00;
+  --primary-color: #DC0505;
+  --secondary-color: #DC0505;
   --font-color: #b7b7b7;
   --bg-color: #171717;
   --heading-color: #fdfffc;
