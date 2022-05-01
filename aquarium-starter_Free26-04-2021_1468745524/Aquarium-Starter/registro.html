@@ -7,6 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Aquarium - Animals Category Responsive Website Template - Services : W3Layouts</title>
     <!-- google-fonts -->
+    <script>
+        
+        let btn_enviar, btn_cerrar_modal, formulario, ventana;
+        let correo,clave, usuario;
+
+        window.onload = function(){
+            btn_enviar = document.getElementById("btn_enviar");
+            btn_cerrar_modal = document.getElementById("btn_cerrar_modal");
+            correo = document.getElementById("correo");
+            clave = document.getElementById("clave");
+            ventana = document.querySelector("#ventana");
+            formulario = document.getElementById("formulario");
+            formulario.addEventListener("submit",procesarEnvio);
+            btn_cerrar_modal.addEventListener("click",cerrarVentana);
+        }
+
+        function cerrarVentana(evento){
+            //ventana.close();
+            location.href = "login.html";
+        }
+
+        function procesarEnvio(evento){
+
+            let txt_correo,txt_clave;
+            let str_usuario;
+            txt_correo = correo.value;
+            txt_clave = md5(clave.value);
+
+            usuario = {
+                correo:txt_correo,
+                clave:txt_clave
+            };
+
+            str_usuario = JSON.stringify(usuario);
+            localStorage.setItem("usuario",str_usuario);
+
+            ventana.showModal();
+            evento.preventDefault();
+
+            //console.log(evento.target);
+
+        }
+    </script>
     <link href="//fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -113,7 +156,7 @@
                         <input type="text" placeholder="name"/>
                         <input type="password" placeholder="password"/>
                         <input type="text" placeholder="email address"/>
-                        <button>create</button>
+                        <input id="btn_enviar" type="submit" value="Registrarse">
                         <p class="message">Already registered? <a href="#">Sign In</a></p>
                     </form>
                 </div>
