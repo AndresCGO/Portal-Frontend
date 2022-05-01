@@ -1,63 +1,80 @@
-document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);
-document.getElementById("btn__registrarse").addEventListener("click", register);
-window.addEventListener("resize", anchoPage);
+let btn_enviar, btn_cerrar_modal, formulario, ventana;
+let correo,clave, usuario, imagen, titulo,mensaje;
 
-//Declarando variables
-var formulario_login = document.querySelector(".formulario__login");
-var formulario_register = document.querySelector(".formulario__register");
-var contenedor_login_register = document.querySelector(".contenedor__login-register");
-var caja_trasera_login = document.querySelector(".caja__trasera-login");
-var caja_trasera_register = document.querySelector(".caja__trasera-register");
+function iniciarLogin(){
+    btn_enviar = document.getElementById("btn_enviar");
+    btn_cerrar_modal = document.getElementById("btn_cerrar_modal");
 
-    //FUNCIONES
-
-function anchoPage(){
-
-    if (window.innerWidth > 850){
-        caja_trasera_register.style.display = "block";
-        caja_trasera_login.style.display = "block";
-    }else{
-        caja_trasera_register.style.display = "block";
-        caja_trasera_register.style.opacity = "1";
-        caja_trasera_login.style.display = "none";
-        formulario_login.style.display = "block";
-        contenedor_login_register.style.left = "0px";
-        formulario_register.style.display = "none";   
-    }
+    correo = document.getElementById("correo");
+    clave = document.getElementById("clave");
+    ventana = document.querySelector("#ventana");
+    formulario = document.getElementById("formulario");
+    formulario.addEventListener("submit",procesarLogin);
+    btn_cerrar_modal.addEventListener("click",cerrarVentana);
 }
 
-anchoPage();
+function mensaje_exito(texto_mensaje){
+    imagen.innerHTML = "🥳"; 
+    btn_cerrar_modal.innerHTML = "Continuar";
+    titulo.innerHTML = "Yayy!";
+    mensaje.innerHTML = texto_mensaje;
+    titulo.classList.remove("color_error_texto");
+    titulo.classList.add("color_exito_texto");
+    btn_cerrar_modal.classList.remove("color_error_texto","color_error_borde")
+    btn_cerrar_modal.classList.add("color_exito_texto","color_exito_borde");
+}
 
+function mensaje_error(texto_mensaje){
+    imagen.innerHTML = "😥"; 
+    btn_cerrar_modal.innerHTML = "Intenta nuevamente";
+    titulo.innerHTML = "Oops!";
+    mensaje.innerHTML = texto_mensaje;
+    titulo.classList.add("color_exito_texto");
+    titulo.classList.add("color_error_texto");
+    btn_cerrar_modal.classList.remove("color_exito_texto","color_exito_borde");
+    btn_cerrar_modal.classList.add("color_error_texto","color_error_borde");
+}
 
-    function iniciarSesion(){
-        if (window.innerWidth > 850){
-            formulario_login.style.display = "block";
-            contenedor_login_register.style.left = "10px";
-            formulario_register.style.display = "none";
-            caja_trasera_register.style.opacity = "1";
-            caja_trasera_login.style.opacity = "0";
-        }else{
-            formulario_login.style.display = "block";
-            contenedor_login_register.style.left = "0px";
-            formulario_register.style.display = "none";
-            caja_trasera_register.style.display = "block";
-            caja_trasera_login.style.display = "none";
+function abrirVentana(){
+    ventana.classList.remove("hidden");
+}
+
+function cerrarVentana(evento){
+    //ventana.classList.add("hidden");
+    location.href = "index.html";
+}
+
+function procesarLogin(evento){
+
+    let txt_correo,txt_clave;
+    let str_usuario, md5_clave;
+    let error = false;
+    txt_correo = correo.value;
+    txt_clave = md5(clave.value);
+
+    str_usuario = localStorage.getItem("usuario");
+    usuario = JSON.parse(str_usuario);
+    
+    if(usuario){
+        if(usuario.correo === txt_correo && usuario.clave === txt_clave){
+            cambiarSesion(true);
+            mensaje_exito("Muy bien, logueo exitoso, continua disfrutando del sitio.");
         }
+        else{
+            error = true;
+        }
+    }else{
+        error = true;
     }
 
-    function register(){
-        if (window.innerWidth > 850){
-            formulario_register.style.display = "block";
-            contenedor_login_register.style.left = "410px";
-            formulario_login.style.display = "none";
-            caja_trasera_register.style.opacity = "0";
-            caja_trasera_login.style.opacity = "1";
-        }else{
-            formulario_register.style.display = "block";
-            contenedor_login_register.style.left = "0px";
-            formulario_login.style.display = "none";
-            caja_trasera_register.style.display = "none";
-            caja_trasera_login.style.display = "block";
-            caja_trasera_login.style.opacity = "1";
-        }
+    if(error){
+        mensaje_error("Revisa los datos, ocurrio un error.");
+    }
+
+    abrirVentana();
+    evento.preventDefault();
+
+
+    //console.log(evento.target);
+
 }
