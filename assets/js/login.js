@@ -8,14 +8,6 @@ function iniciarLogin(){
     formulario.addEventListener("submit",procesarLogin);
 }
 
-function mensaje_exito(){
-    window.alert("logueado con exito")
-}
-
-function mensaje_error(){
-    window.alert("No se pudeo loguear")
-}
-
 function procesarLogin(evento){
 
     let txt_correo,txt_clave;
@@ -30,7 +22,7 @@ function procesarLogin(evento){
     if(usuario){
         if(usuario.correo === txt_correo && usuario.clave === txt_clave){
             cambiarSesion(true);
-            mensaje_exito();
+            window.alert("logueado con exito");
         }
         else{
             error = true;
@@ -40,7 +32,7 @@ function procesarLogin(evento){
     }
 
     if(error){
-        mensaje_error();
+        window.alert("No se pudeo loguear");
     }
 
     abrirVentana();
