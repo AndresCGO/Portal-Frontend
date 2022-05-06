@@ -132,11 +132,13 @@ function abrirPagina(evento){
         //TODO: Personalizar con mensaje lightbox
     }
 }*/
-let personajes;
+let personajes, armas;
 let logged = false;
 
 window.onload = function()
 {
+    armas = document.getElementById("armas");
+    personajes.addEventListener("click",evaluarLogin);
     personajes = document.getElementById("personajes");
     personajes.addEventListener("click",evaluarLogin);
     cambiarSesion(JSON.parse(localStorage.getItem("logeado")));
@@ -146,7 +148,13 @@ function evaluarLogin(evento)
 {
     if (logged)
     {
-        location.href = "contact.html"
+        if (evento.target.id == armas) {
+            location.href = "services.html"
+        }
+        else{
+            location.href = "contact.html"
+        }
+        
     }
     else
     {
