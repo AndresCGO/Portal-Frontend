@@ -1,4 +1,4 @@
-let contenedor_menu;
+/*let contenedor_menu;
 let menu_items = [];
 let paginas = [];
 var iniciarLogin = undefined, iniciarRegistro = undefined,productos = undefined;
@@ -131,4 +131,33 @@ function abrirPagina(evento){
         location.href = "login.html";
         //TODO: Personalizar con mensaje lightbox
     }
+}*/
+let personajes;
+let logged = false;
+
+window.onload = function()
+{
+    personajes = document.getElementById("personajes");
+    personajes.addEventListener("click",evaluarLogin);
+    cambiarSesion(JSON.parse(localStorage.getItem("logeado")));
+}
+
+function evaluarLogin(evento)
+{
+    if (logged)
+    {
+        location.href = "contact.html"
+    }
+    else
+    {
+        location.href = "login.html"
+        window.alert("No estás logeado");
+    }
+}
+
+function cambiarSesion(bandera)
+{
+    logged = bandera;
+    localStorage.setItem("logeado",logged);
+
 }

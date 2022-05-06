@@ -10,7 +10,7 @@ window.onload = function()
     formulario.addEventListener("submit", procesarLogin);
 }
 
-function procesarLogin()
+function procesarLogin(evento)
 {
     let txt_correo, txt_clave;
     let str_usuario, md5_clave;
@@ -25,6 +25,7 @@ function procesarLogin()
     {
         if(usuario.correo == txt_correo && usuario.clave == txt_clave)
         {
+            cambiarSesion(true);
             window.alert("Logeado :)");
         }
         else
