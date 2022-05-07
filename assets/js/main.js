@@ -14,13 +14,7 @@ function evaluarLogin(evento)
 {
     if (logged)
     {
-        if (evento.target.id == armas) {
-            location.href = "services.html"
-        }
-        else{
-            location.href = "contact.html"
-        }
-        
+        location.href = "contact.html"         
     }
     else
     {
