@@ -27,11 +27,18 @@ function procesarLogin(evento)
         {
             cambiarSesion(true);
             window.alert("Login exitoso");
-            location.href = "login.html"
+            location.href = "index.html"
         }
         else
         {
             window.alert("Intenta nuevamente");
         }
     }
+}
+
+function cambiarSesion(bandera)
+{
+    logged = bandera;
+    localStorage.setItem("logeado",logged);
+
 }
