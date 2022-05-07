@@ -35,3 +35,10 @@ function procesarLogin(evento)
         }
     }
 }
+
+function cambiarSesion(bandera)
+{
+    logged = bandera;
+    localStorage.setItem("logeado",logged);
+
+}

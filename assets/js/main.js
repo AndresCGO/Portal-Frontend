@@ -15,16 +15,16 @@ function evaluarLogin(evento)
     if (logged)
     {
         if ( this.id == "personajes") {
-            location.href = "contact.html"
+            location.href = "contact.html";
         }
         else if(this.id == "armas"){
-            location.href = "services.html"
+            location.href = "services.html";
         }
         
     }
     else
     {
-        location.href = "login.html"
+        location.href = "login.html";
         window.alert("No estás logeado");
     }
 }
