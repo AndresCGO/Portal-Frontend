@@ -19089,4 +19089,34 @@ h4.inner-text-title {
   left:10px;
 }
 
+.contenedor_batalla{
+/*   border:1px solid black; */
+  display:flex;
+  justify-content:space-around;
+  width:500px;
+  margin:0 auto;
+}
+
+
+
+.animal{
+  background-color:#F20505;
+  border-radius:100px;
+  width:200px;
+  height:200px;
+  text-align:center;
+  border:5px solid #BF0404;
+}
+
+.animal img{
+  margin-top:30px;
+}
+
+.animal label{
+  font-family:impact;
+  text-transform:uppercase;
+  color:beige;
+  font-size:20px;
+}
+
 /* //contact */
