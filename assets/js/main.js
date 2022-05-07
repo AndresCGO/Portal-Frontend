@@ -1,7 +1,7 @@
 let personajes;
 let logged = false;
 
-window.onload = evaluarLogin()
+window.onload = function()
 {
     personajes = document.getElementById("personajes");
     personajes.addEventListener("click",evaluarLogin);
@@ -14,10 +14,10 @@ function evaluarLogin(evento)
 {
     if (logged)
     {
-        if ( this.id === "personajes") {
+        if ( this.id == "personajes") {
             location.href = "contact.html"
         }
-        elseif(this.id === "armas"){
+        else if(this.id == "armas"){
             location.href = "services.html"
         }
         
