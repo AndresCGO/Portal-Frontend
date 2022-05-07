@@ -26,8 +26,8 @@ function procesarLogin(evento)
         if(usuario.correo == txt_correo && usuario.clave == txt_clave)
         {
             cambiarSesion(true);
-            window.alert("Login exitoso");
             location.href = "index.html"
+            window.alert("Login exitoso");
         }
         else
         {
