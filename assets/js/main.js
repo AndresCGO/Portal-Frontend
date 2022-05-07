@@ -1,10 +1,12 @@
 let personajes;
 let logged = false;
 
-window.onload = function()
+window.onload = evaluarLogin()
 {
     personajes = document.getElementById("personajes");
     personajes.addEventListener("click",evaluarLogin);
+    armas = document.getElementById("armas");
+    armas.addEventListener("click",evaluarLogin);
     cambiarSesion(JSON.parse(localStorage.getItem("logeado")));
 }
 
@@ -12,7 +14,7 @@ function evaluarLogin(evento)
 {
     if (logged)
     {
-        if ( this.id = "personajes") {
+        if ( this.id == "personajes") {
             location.href = "contact.html"
         }
         else{

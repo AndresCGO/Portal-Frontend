@@ -27,7 +27,7 @@ function procesarLogin(evento)
         {
             cambiarSesion(true);
             window.alert("Login exitoso");
-            location.href = "login.html"
+            location.href = "index.html"
         }
         else
         {
