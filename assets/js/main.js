@@ -14,10 +14,10 @@ function evaluarLogin(evento)
 {
     if (logged)
     {
-        if ( this.id == "personajes") {
+        if ( this.id === "personajes") {
             location.href = "contact.html"
         }
-        else{
+        elseif(this.id === "armas"){
             location.href = "services.html"
         }
         
